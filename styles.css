@@ -1,0 +1,377 @@
+:root {
+  --navy: #1A212B;
+  --navy-2: #0f1823;
+  --copper: #A76641;
+  --copper-dark: #8F5737;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --bg-alt: #f7f7f8;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg)
+}
+
+a {
+  color: inherit
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--navy);
+  color: #fff;
+  border-bottom: 1px solid rgba(167, 102, 65, .3)
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  display: block
+}
+
+.nav a {
+  text-decoration: none;
+  margin-left: 20px;
+  opacity: .95
+}
+
+.nav a:hover {
+  color: var(--copper)
+}
+
+.btn {
+  background: var(--copper);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  display: inline-block
+}
+
+.btn:hover {
+  background: var(--copper-dark)
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(90deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: #fff;
+  padding: 64px 0 72px 0
+}
+
+.hero h1 {
+  margin: 0 0 12px 0;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2
+}
+
+.hero p {
+  margin: 0 0 24px 0;
+  opacity: .9;
+  font-size: clamp(16px, 2vw, 18px)
+}
+
+/* Sections */
+.section {
+  padding: 64px 0
+}
+
+.section h2 {
+  margin: 0 0 16px 0;
+  font-size: clamp(24px, 3vw, 32px)
+}
+
+.lead {
+  color: var(--muted);
+  line-height: 1.7
+}
+
+.grid {
+  display: grid;
+  gap: 20px
+}
+
+.grid-2 {
+  grid-template-columns: 1fr 1fr
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr)
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--copper);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--copper), var(--copper-dark));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Practice area cards with icons */
+.practice-card {
+  text-align: center;
+}
+
+.practice-card .icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  font-size: 24px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.practice-card:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(167, 102, 65, 0.3);
+}
+
+.practice-card .h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: var(--navy);
+}
+
+/* Location cards enhanced */
+.location-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-left: 4px solid var(--copper);
+}
+
+.location-card:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.case-retrieval {
+  margin: 16px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: white;
+  border: none;
+}
+
+.case-retrieval h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.case-retrieval input,
+.case-retrieval textarea {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.case-retrieval input:focus,
+.case-retrieval textarea:focus {
+  background: white;
+  box-shadow: 0 0 0 3px rgba(167, 102, 65, 0.1);
+  outline: none;
+  border-color: var(--copper);
+}
+
+/* Contact info styling */
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.contact-info-item:hover {
+  background: #f8fafc;
+  padding-left: 8px;
+  border-radius: 8px;
+  border-bottom-color: var(--copper);
+}
+
+.contact-info-item .icon {
+  width: 20px;
+  margin-right: 12px;
+  color: var(--copper);
+  font-weight: bold;
+}
+
+@media (max-width:900px) {
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr
+  }
+
+  .nav {
+    display: none
+  }
+}
+
+/* CTA band */
+.band {
+  background: #202A3B;
+  color: #fff
+}
+
+/* Contact form */
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 16px
+}
+
+textarea {
+  min-height: 120px
+}
+
+.help {
+  font-size: 12px;
+  color: #6b7280
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  background: var(--bg-alt)
+}
+
+.copy {
+  color: #6b7280;
+  font-size: 14px
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 10px;
+  margin: 0px 0px 16px 0px;
+  font-size: 12px;
+  color: #374151;
+  background: #f9fafb;
+}
+
+/* Utility classes */
+.underlined {
+  text-decoration: underline !important
+}
+
+/* Animation utilities */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.fade-in:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.fade-in:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.border-decoration {
+  border-color: #e5e7eb;
+}
